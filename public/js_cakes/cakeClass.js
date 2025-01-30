@@ -29,7 +29,7 @@ export default class CakeClass{
   }
 
   async delCake(){
-    let url = "http://localhost:5000/api/cakes/"+this.id;
+    let url = "https://project-nd51.onrender.com/api/cakes/"+this.id;
     try{
 
       let resp =  await axios({
