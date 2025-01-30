@@ -18,8 +18,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', authRoutes);
 app.use('/api', cakeRoutes);
 
+
+main().catch(err => console.log(err));
+
+async function main() {
 // MongoDB Connection
-mongoose.connect(`mongodb+srv://${confsecretList.USERNAME}:${confsecretList.PASSWORD}@cluster0.ls0l2.mongodb.net/`, {
+await mongoose.connect(`mongodb+srv://${confsecretList.USERNAME}:${confsecretList.PASSWORD}@cluster0.ls0l2.mongodb.net/`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
@@ -27,5 +31,6 @@ mongoose.connect(`mongodb+srv://${confsecretList.USERNAME}:${confsecretList.PASS
 }).catch(err => {
     console.error('MongoDB connection error', err);
 });
+}
 
 module.exports = app;
