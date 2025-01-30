@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const authRoutes = require('./routes/authRoutes');
 const cakeRoutes = require('./routes/cakeRoutes');
-const {confsecretList} = require('../config/secret.js');
+const {confsecretList} = require('./config/secret.js');
 
 const app = express();
 
