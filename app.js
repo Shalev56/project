@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const authRoutes = require('./routes/authRoutes');
 const cakeRoutes = require('./routes/cakeRoutes');
+const {confsecretList} = require('../config/secret.js');
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use('/api', authRoutes);
 app.use('/api', cakeRoutes);
 
 // MongoDB Connection
-mongoose.connect('mongodb://localhost/cakes_db', {
+mongoose.connect(`mongodb+srv://${confsecretList.USERNAME}:${confsecretList.PASSWORD}@cluster0.ls0l2.mongodb.net/`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
